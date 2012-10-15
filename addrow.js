@@ -6,8 +6,6 @@
  * To change this template use File | Settings | File Templates.
  */
 function add_row(){
-    var html=ejs.update('res',{_new:[{original:'', translation:'', translation_type:'Brands'}]});
-    //document.getElementById('res').innerHTML=html;
-    /*data._new[data._new.length]={original:'', translation:'', translation_type:'Brands'};
-    redraw();*/
+    data._new[data._new.length]={original:'', translation:'', translation_type:'Brands'};
+    ejs.update('res',data);
 }
