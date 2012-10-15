@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>test</title>
+    <script type="text/javascript" src="ejs_production.js"></script>
+    <script type="text/javascript" src="addrow.js"></script>
+</head>
+<body>
+<div id="res"></div>
+<script type="text/javascript">
+    var data={
+        _old:{
+       1: {original:'Adidas', translation:'Адидас'},
+       2: {original:'Puma', translation:'Пума'},
+       4: {original:'Reebok', translation:'Рибок'}
+    },
+        _new:[]
+    };
+
+    var ejs=new EJS({url: 'http://localhost/test/cleaning.ejs'});
+        var html = ejs.render(data);
+        document.getElementById('res').innerHTML=html;
+
+</script>
+</body>
+</html>
