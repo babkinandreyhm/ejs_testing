@@ -1,29 +1,12 @@
 
 <%for(var key in _old){
-var prefix='';
-        var element=_old[key];
-
 %>
-
-    <input type='text' name='<%=prefix%>FuncdataTranslation[<%=key%>][original]' value='<%=element.original %>' />
-    <input type='text' name='<%=prefix%>FuncdataTranslation[<%=key%>][translation]' value='<%=element.translation %>' />
-<% if(element.hasOwnProperty('translation_type')) { %>
-<input type='hidden' name='<%=prefix%>FuncdataTranslation[<%=key%>][translation_type]'  value='<%=element.translation_type %>' />
-        <% } %>
-    <br/>
+<%= new EJS({url:"rt.ejs"}).render({prefix:'',element:_old[key],key:key}) %>
 <% } %>
 
 <%for(var key in _new){
-var prefix='new';
-var element=_new[key];
 %>
 
-<input type='text' name='<%=prefix%>FuncdataTranslation[<%=key%>][original]' value='<%=element.original %>' />
-<input type='text' name='<%=prefix%>FuncdataTranslation[<%=key%>][translation]' value='<%=element.translation %>' />
-<% if(element.hasOwnProperty('translation_type')) { %>
-<input type='hidden' name='<%=prefix%>FuncdataTranslation[<%=key%>][translation_type]'  value='<%=element.translation_type %>' />
-<% } %>
-<br/>
-<% } %>
+<%= new EJS({url:"rt.ejs"}).render({prefix:'new',element:_new[key],key:key}) %>
 
-<input type='button' onclick='add_row()' />
+<% } %>

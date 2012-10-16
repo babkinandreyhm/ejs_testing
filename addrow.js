@@ -5,7 +5,20 @@
  * Time: 18:43
  * To change this template use File | Settings | File Templates.
  */
-function add_row(){
-    data._new[data._new.length]={original:'', translation:'', translation_type:'Brands'};
-    ejs.update('res',data);
-}
+
+$(document).ready(
+    function(){
+        var add_row_function=function(){
+            var ds=EJSdata[$(this).attr('dataSource')];
+            new EJS({url:$(this).attr('templateFile')}).update($(this).attr('targetElement'),ds);
+            ds._new[ds._new.length]=ds._newTemplate;
+        };
+        $("input.add_row").each(add_row_function);
+
+
+        $("input.add_row").live("click",add_row_function);
+    }
+
+
+
+)
